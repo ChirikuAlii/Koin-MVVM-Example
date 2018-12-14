@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="model"
+                type="chrikualii.info.koinmvvmexample.data.db.MovieEntity"/>
+    </data>
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+            <ImageView
+                    android:id="@+id/img_poster"
+                    android:layout_width="120dp"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_launcher_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                    android:id="@+id/txt_title_movie"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:scrollHorizontally="false"
+                    android:text="@{model.originalTitle}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/img_poster"
+                    app:layout_constraintTop_toTopOf="@+id/img_poster"/>
+
+            <TextView
+                    android:id="@+id/txt_overview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:scrollHorizontally="false"
+                    android:text="@{model.overview}"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_release_date"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_poster"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_title_movie"
+                    app:layout_constraintVertical_bias="0.0"/>
+
+            <TextView
+                    android:id="@+id/txt_release_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{model.releaseDate}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/img_poster"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_overview"/>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>
