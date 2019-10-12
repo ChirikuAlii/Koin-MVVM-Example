@@ -24,7 +24,6 @@ import java.util.concurrent.TimeUnit
  */
 
 val appModule = module {
-
     single { createOkHttpClient() }
     single { createRetrofit(get()) }
 
@@ -34,9 +33,9 @@ val appModule = module {
     //viewmodel
     viewModel { MainViewModel(get()) }
 }
+
 val serviceModule = module {
     single { createApiService(get()) }
-
 }
 
 val dataModule = module {
@@ -65,7 +64,6 @@ fun createRetrofit(okHttpClient: OkHttpClient): Retrofit {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
         .client(okHttpClient)
         .build()
-
 }
 
 fun createApiService(retrofit: Retrofit): ApiService = retrofit.create(

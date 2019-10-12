@@ -53,6 +53,4 @@ class MainViewModel(private val repo: MovieRepo) : RxViewModel() {
                 })
         }
     }
-
-
 }

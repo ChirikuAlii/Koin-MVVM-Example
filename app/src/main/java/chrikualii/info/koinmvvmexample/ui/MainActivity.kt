@@ -46,6 +46,4 @@ class MainActivity : AppCompatActivity() {
     private fun setupView() {
         recycler_view.layoutManager = LinearLayoutManager(this)
     }
-
-
 }
